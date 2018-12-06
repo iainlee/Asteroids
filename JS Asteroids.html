@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asteroids</title>
+</head>
+<body>
+
+<canvas
+id="gameCanvas"
+width="1000"
+height="1000"
+style="background-color:black"
+style="border:20px solid #0101DF"
+/>
+
+    <script>
+        'use strict'
+
+        window.onload=launch()
+
+        let playerShip;
+
+        function launch()
+        {
+            console.log("Start function called")
+            playingField.start();
+            playerShip = new entity(100,100,20,20,"green");
+        }
+
+        var playingField =
+        {
+            canvas: document.createElement("canvas"),
+            start: function()
+            {
+                this.canvas.height="1000";
+                this.canvas.width="1000";
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0])
+            }
+
+        }
+
+        function entity(x,y,height,width,colour)
+        {
+            console.log("trying to build entity")
+            this.x=x;
+            this.y=y;
+            this.height = height;
+            this.width = width;
+            this.colour=colour;
+            entitycontext = playingField.context;
+            entitycontext.fillStyle=colour;
+            entitycontext.fillRect(this.x, this.y, this.height, this.width)
+        }
+
+        // let theCanvas = document.getElementById("gameCanvas");
+        // window.onload=start();
+
+        // function start()
+        // {
+        //     let background = theCanvas.getContext("2d")
+        //     background.fillStyle="#000000"
+        //     background.fillRect(0,0,1000,1000)
+
+        //     let playerShip = new entity(50,50,10,10,"image","ship.jpg")
+        // }
+
+        // function entity(x,y,height,width,type,src)
+        // {
+        //     window.alert("trying to make ship")
+        //     this.x=x;
+        //     this.y=y;
+        //     this.height = height;
+        //     this.width = width;
+        //     this.type = type;
+        //     this.image = new Image();
+        //     this.image.src= src;
+        // }
+
+//     <img src='ship.jpg' width="50px" height = "50px" id="ship"/>
+
+//     <script>
+
+//         document.addEventListener("mouse",{moveShip}, true)
+//         //document.addEventListener("mousemove",{moveShip}, true)
+        
+// function moveShip() {
+//     window.alert("hi")
+//     document.getElementById("ship").style.position="200"
+// }
+
+    </script>
+</body>
+</html>
